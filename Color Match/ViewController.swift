@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var colorWord: UILabel!
     @IBOutlet var highscoreLabel: UILabel!
+    @IBOutlet var hsMessage: UILabel!
     
     
     /* HELPER FUNCTIONS */
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
         highscoreLabel.text = "High Score: \(highscore)"
     }
     
-    // Called when gamestate == 3
+    // Called when time runs out
     func gameover() {
         playing = false
         resetColorButtons()
@@ -70,6 +71,8 @@ class ViewController: UIViewController {
         // check for high score
         if score > highscore {
             highscore = score
+            hsMessage.text = "New High Score!"
+            UserDefaults.standard.set(highscore, forKey: "highScore") // enable permanent data storage
             updateHighscoreLabel()
         }
     }
@@ -96,6 +99,7 @@ class ViewController: UIViewController {
             
             score = 0
             updateScoreLabel()
+            hsMessage.text = ""
             
             timerCount = 60
             timerLabel.text = "1:00"
@@ -106,10 +110,10 @@ class ViewController: UIViewController {
     
     // General function for color button pressing
     func clickColorButton(button: UIButton, color: String) {
-        resetColorButtons()
-        chosenColor = color
-        
-        if playing {
+        if playing { // only apply when in game
+            resetColorButtons()
+            chosenColor = color
+            
             if chosenColor == correctColor {
                 score += 1
                 button.setTitle("✓", for: [])
@@ -119,7 +123,7 @@ class ViewController: UIViewController {
             }
             
             updateScoreLabel()
-            genRandomColor()
+            genRandomColor() // generate new color
         }
     }
     
@@ -143,12 +147,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         resetColorButtons()
         timerLabel.text = ""
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = ""
+        hsMessage.text = ""
         colorWord.text = ""
         
         if highscore == -1 {
-            highscoreLabel.text = "High Score:    "
+            highscoreLabel.text = ""
         } else {
+            updateHighscoreLabel()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // if there's already a value stored for key "highScore", store it in highscore
+        if let hs: Int = UserDefaults.standard.object(forKey: "highScore") as? Int {
+            highscore = hs
             updateHighscoreLabel()
         }
     }

@@ -47,6 +47,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-cy-cqq">
+                                <rect key="frame" x="215" y="613" width="120" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcY-2J-FGF">
                                 <rect key="frame" x="20" y="277" width="150" height="150"/>
                                 <color key="backgroundColor" red="0.14378902396640231" green="0.73490123056994816" blue="0.070738871797888417" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -119,9 +125,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-cy-cqq">
-                                <rect key="frame" x="215" y="613" width="120" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(New High Score!)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj6-ho-clc">
+                                <rect key="frame" x="212" y="644" width="126" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="5vG-Kw-fVG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -137,8 +146,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gCs-RK-nZ4" secondAttribute="trailing" constant="20" id="GkN-Cr-EKr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UrZ-cy-cqq" secondAttribute="bottom" constant="30" id="HbR-UX-BHJ"/>
                             <constraint firstItem="SZB-Lz-bQu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvM-JH-YGP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lj6-ho-clc" secondAttribute="bottom" constant="5" id="MFT-F5-lOy"/>
                             <constraint firstItem="CQa-pq-dDq" firstAttribute="top" secondItem="SZB-Lz-bQu" secondAttribute="bottom" constant="70" id="OHm-ot-YDc"/>
                             <constraint firstItem="Mmw-iH-Hr2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ae7-3h-xYg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lj6-ho-clc" secondAttribute="trailing" constant="37" id="ajM-5q-EMp"/>
                             <constraint firstItem="SZB-Lz-bQu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="25" id="ceP-kJ-BJK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UrZ-cy-cqq" secondAttribute="trailing" constant="40" id="e2p-Kc-lse"/>
                             <constraint firstItem="IXh-yl-j5c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fpc-8t-V1h"/>
@@ -158,6 +169,7 @@
                         <outlet property="colorWord" destination="Mmw-iH-Hr2" id="EFz-US-UT9"/>
                         <outlet property="green" destination="QcY-2J-FGF" id="Y7a-3r-uHq"/>
                         <outlet property="highscoreLabel" destination="UrZ-cy-cqq" id="khp-HI-tvk"/>
+                        <outlet property="hsMessage" destination="lj6-ho-clc" id="1e5-PQ-jTS"/>
                         <outlet property="playButton" destination="CQa-pq-dDq" id="vrX-7W-dzX"/>
                         <outlet property="red" destination="gCs-RK-nZ4" id="oeM-FK-QNw"/>
                         <outlet property="scoreLabel" destination="osh-P8-Lda" id="6Ef-hG-x0p"/>
