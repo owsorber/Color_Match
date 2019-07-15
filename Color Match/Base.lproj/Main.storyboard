@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osh-P8-Lda">
-                                <rect key="frame" x="50" y="613" width="60.5" height="24"/>
+                                <rect key="frame" x="40" y="613" width="60.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,7 +114,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXh-yl-j5c">
-                                <rect key="frame" x="275" y="613" width="50" height="24"/>
+                                <rect key="frame" x="162.5" y="175" width="50" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-cy-cqq">
+                                <rect key="frame" x="215" y="613" width="120" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -123,17 +129,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QcY-2J-FGF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2UT-IR-cyn"/>
+                            <constraint firstItem="IXh-yl-j5c" firstAttribute="top" secondItem="SZB-Lz-bQu" secondAttribute="bottom" constant="70" id="6VW-O0-kBB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QcY-2J-FGF" secondAttribute="bottom" constant="240" id="7F2-Dc-nbN"/>
-                            <constraint firstItem="osh-P8-Lda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="9bf-tr-gKn"/>
+                            <constraint firstItem="osh-P8-Lda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="9bf-tr-gKn"/>
                             <constraint firstItem="HOL-AD-Iw3" firstAttribute="top" secondItem="SZB-Lz-bQu" secondAttribute="bottom" constant="10" id="EWE-2U-sQz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gCs-RK-nZ4" secondAttribute="bottom" constant="240" id="G9q-Ag-lPY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gCs-RK-nZ4" secondAttribute="trailing" constant="20" id="GkN-Cr-EKr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UrZ-cy-cqq" secondAttribute="bottom" constant="30" id="HbR-UX-BHJ"/>
                             <constraint firstItem="SZB-Lz-bQu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvM-JH-YGP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IXh-yl-j5c" secondAttribute="bottom" constant="30" id="JGg-Af-Pd5"/>
                             <constraint firstItem="CQa-pq-dDq" firstAttribute="top" secondItem="SZB-Lz-bQu" secondAttribute="bottom" constant="70" id="OHm-ot-YDc"/>
                             <constraint firstItem="Mmw-iH-Hr2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ae7-3h-xYg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IXh-yl-j5c" secondAttribute="trailing" constant="50" id="bXA-5t-SJl"/>
                             <constraint firstItem="SZB-Lz-bQu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="25" id="ceP-kJ-BJK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UrZ-cy-cqq" secondAttribute="trailing" constant="40" id="e2p-Kc-lse"/>
+                            <constraint firstItem="IXh-yl-j5c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fpc-8t-V1h"/>
                             <constraint firstItem="AXx-g4-phn" firstAttribute="top" secondItem="gCs-RK-nZ4" secondAttribute="bottom" constant="15" id="g2D-UV-duR"/>
                             <constraint firstItem="HOL-AD-Iw3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hX7-qG-5kj"/>
                             <constraint firstItem="6dn-qd-erL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jAK-OH-zSd"/>
@@ -149,6 +157,7 @@
                         <outlet property="blue" destination="AXx-g4-phn" id="Rds-Ke-RlI"/>
                         <outlet property="colorWord" destination="Mmw-iH-Hr2" id="EFz-US-UT9"/>
                         <outlet property="green" destination="QcY-2J-FGF" id="Y7a-3r-uHq"/>
+                        <outlet property="highscoreLabel" destination="UrZ-cy-cqq" id="khp-HI-tvk"/>
                         <outlet property="playButton" destination="CQa-pq-dDq" id="vrX-7W-dzX"/>
                         <outlet property="red" destination="gCs-RK-nZ4" id="oeM-FK-QNw"/>
                         <outlet property="scoreLabel" destination="osh-P8-Lda" id="6Ef-hG-x0p"/>

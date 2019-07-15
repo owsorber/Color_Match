@@ -14,9 +14,10 @@ class ViewController: UIViewController {
     var chosenColor: String = ""
     var correctColor: String = ""
     
-    var gamestate = 1 // 1 = pre-start, 2 = playing, 3 = gameover
+    var playing: Bool = false
+    var highscore: Int = -1
     var score: Int = 0
-    var timerCount = 60
+    var timerCount: Int = 60
     var timer: Timer?
     
     
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var colorWord: UILabel!
+    @IBOutlet var highscoreLabel: UILabel!
     
     
     /* HELPER FUNCTIONS */
@@ -49,39 +51,65 @@ class ViewController: UIViewController {
         yellow.setTitle("", for: [])
     }
     
+    // Score label updating (called when color button pressed for score and when game over for high score)
+    func updateScoreLabel() {
+        scoreLabel.text = "Score: \(score)"
+    }
+    func updateHighscoreLabel() {
+        highscoreLabel.text = "High Score: \(highscore)"
+    }
+    
+    // Called when gamestate == 3
+    func gameover() {
+        playing = false
+        resetColorButtons()
+        colorWord.text = "Time's Up!"
+        timerLabel.text = ""
+        playButton.setTitle("Play Again", for: [])
+        
+        // check for high score
+        if score > highscore {
+            highscore = score
+            updateHighscoreLabel()
+        }
+    }
+    
     // Called each second as the timer ticks
     @objc func updateTimer(timer: Timer) -> Void {
-        if timerCount > 9 && timerCount <= 60 {
-            timerCount -= 1
+        timerCount -= 1 // at every tick, there is 1 less second left
+        if timerCount >= 10 {
             timerLabel.text = "0:" + String(timerCount)
-        } else if timerCount > 0 && timerCount < 10 {
-            timerCount -= 1
+        } else if timerCount > 0 {
             timerLabel.text = "0:0" + String(timerCount)
         } else if timerCount == 0 {
             timerLabel.text = "0:00"
-            gamestate = 3
-            colorWord.text = "Time's Up!"
+            gameover()
         }
     }
     
     // PLAY
     @IBOutlet var playButton: UIButton!
     @IBAction func playPressed(_ sender: Any) {
-        if gamestate == 1 {
-            gamestate += 1
+        if !playing {
+            playing = true
             playButton.setTitle("", for: [])
+            
             score = 0
+            updateScoreLabel()
+            
+            timerCount = 60
             timerLabel.text = "1:00"
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             genRandomColor()
         }
     }
     
+    // General function for color button pressing
     func clickColorButton(button: UIButton, color: String) {
         resetColorButtons()
         chosenColor = color
         
-        if gamestate == 2 {
+        if playing {
             if chosenColor == correctColor {
                 score += 1
                 button.setTitle("✓", for: [])
@@ -90,12 +118,12 @@ class ViewController: UIViewController {
                 button.setTitle("X", for: [])
             }
             
-            scoreLabel.text = "Score: \(score)"
+            updateScoreLabel()
             genRandomColor()
         }
     }
     
-    // BUTTON CLICKING
+    // BUTTON PRESSING IBActions
     @IBAction func greenPressed(_ sender: Any) {
         clickColorButton(button: green, color: "GREEN")
     }
@@ -117,6 +145,12 @@ class ViewController: UIViewController {
         timerLabel.text = ""
         scoreLabel.text = "Score: 0"
         colorWord.text = ""
+        
+        if highscore == -1 {
+            highscoreLabel.text = "High Score:    "
+        } else {
+            updateHighscoreLabel()
+        }
     }
 }
 
