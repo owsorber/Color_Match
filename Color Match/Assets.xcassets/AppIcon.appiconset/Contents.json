@@ -1,8 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "ColorMatch_Logo_40x40.png",
       "scale" : "2x"
     },
     {
@@ -11,8 +12,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "ColorMatch_Logo_1_58x58.png",
       "scale" : "2x"
     },
     {
